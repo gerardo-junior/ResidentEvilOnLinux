@@ -1,0 +1,61 @@
+language: bash
+sudo: true
+
+services:
+  - docker
+
+before_cache:
+  # Save tagged docker images
+  - mkdir -p $HOME/docker && docker images -a --filter='dangling=false' --format '{{.Repository}}:{{.Tag}} {{.ID}}' | xargs -n 2 -t sh -c 'test -e $HOME/docker/$1.tar.gz || docker save $0 | gzip -2 > $HOME/docker/$1.tar.gz'
+
+before_install:
+  # Load cached docker images
+  - if [[ -d $HOME/docker ]]; then ls $HOME/docker/*.tar.gz | xargs -I {file} sh -c "zcat {file} | docker load"; fi
+  - docker-compose pull
+
+cache:
+  bundler: true
+  directories:
+    - $HOME/docker
+
+jobs:  
+  include:
+    - stage: "Resident Evil zero"
+      name: build
+      script: echo 'Building...' && exit 0
+      
+    - stage: "Resident Evil"
+      name: build
+      script: echo 'Building...' && exit 0
+
+    - stage: "Resident Evil 2"
+      name: build
+      script: echo 'Building...' && exit 0
+
+    - stage: "Resident Evil: Operation Raccoon City"
+      name: build
+      script: echo 'Building...' && exit 0
+
+    - stage: "Resident Evil 4"
+      name: build
+      script: echo 'Building...' && exit 0
+
+    - stage: "Resident Evil: Revelations"
+      name: build
+      script: echo 'Building...' && exit 0
+
+    - stage: "Resident Evil 5"
+      name: build
+      script: echo 'Building...' && exit 0
+
+    - stage: "Resident Evil: Revelations 2"
+      name: build
+      script: echo 'Building...' && exit 0
+
+    - stage: "Resident Evil 6"
+      name: build
+      script: echo 'Building...' && exit 0
+
+    - stage: "Resident Evil 7"
+      name: build
+      script: echo 'Building...' && exit 0
