@@ -1,1 +1,1 @@
-# Resident Evil: zero
+# Resident Evil zero
