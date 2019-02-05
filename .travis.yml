@@ -27,8 +27,20 @@ jobs:
     - stage: "Resident Evil"
       name: build
       script: echo 'Building...' && exit 0
+    
+    - stage: "Resident Evil: Remake"
+      name: build
+      script: echo 'Building...' && exit 0  
 
     - stage: "Resident Evil 2"
+      name: build
+      script: echo 'Building...' && exit 0
+    
+    - stage: "Resident Evil 2: Remake"
+      name: build
+      script: echo 'Building...' && exit 0
+
+    - stage: "Resident Evil 3"
       name: build
       script: echo 'Building...' && exit 0
 
